@@ -51,7 +51,7 @@ z1 = outer(x1, x2, FUN = function(x, y) {fixef(model)[1] +
                                          (fixef(model)[2] * x) +
                                          (fixef(model)[3] * y) + 
                                          (x * y * fixef(model)[5])
-                                          })
+                                          }) # this calculates the z axis
 
 # Compute font parameters
 # z axis parameters
@@ -102,7 +102,7 @@ xy <- list(
     linewidth = 4
   )
 
-# Create the plot. Specify axis paremeters using scene
+# Create the plot. Specify axis parameters (the ones we created above) using layout(scene = list(...))
 surface_plot <- plot_ly() %>%
                       add_trace(x = ~x2, 
                                 y = ~x1, 
@@ -113,17 +113,17 @@ surface_plot <- plot_ly() %>%
                                 marker = list(size = 2, 
                                               color = "#571A44",
                                               opacity = 0.3),
-                                showlegend = FALSE) %>%
+                                showlegend = FALSE) %>% # In this part, we added the scatterplot
                       add_surface(z = z1,
                                   x = x2, 
                                   y = x1,
-                                  opacity = 0.8) %>%
+                                  opacity = 0.8) %>% # Here, we add the surface
                       layout(scene = list(zaxis = xz, 
                                           xaxis = xx, 
                                           yaxis = xy,
                                           showscale = FALSE, 
-                                          showlegend = FALSE)) %>%
-                      hide_colorbar()
+                                          showlegend = FALSE)) %>% # Here, we specify layout parameters
+                      hide_colorbar() # Hide the color gradient legend
 
 # If you have htmlwidgets installed, the plot should appear in the plot window (in Rstudio)
 # If not, running "surface_plot" in your console will open an url with the plot. You can change it in there and then save it in your computer as a .png file
