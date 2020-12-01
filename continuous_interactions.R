@@ -47,6 +47,7 @@ titlefont <- list(
 x1 <- seq(min(data$x1), max(data$x1), length = 50) # select values for the surface
 x2 <- seq(min(data$x2), max(data$x2), length = 50)
 
+# If your model is more complex (ex. polynomial terms), you must add all terms to extract the z-values
 z1 = outer(x1, x2, FUN = function(x, y) {fixef(model)[1] + 
                                          (fixef(model)[2] * x) +
                                          (fixef(model)[3] * y) + 
