@@ -180,5 +180,3 @@ surface_plot <- plot_ly() %>%
 # the plot window when you executed it. If not, it should open 
 # an url with the plot. You can change it in there and then save
 # it in your computer as a .png file.
-
-# test
