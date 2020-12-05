@@ -34,7 +34,7 @@ lapply(packages, require, character.only = TRUE)
 
 # Transformer la variable "environment" en facteur
 # Transform the "environment" variable as a factor
-data$environment <- as.factor(data$environment)
+data$environnement <- as.factor(data$environnement)
 
 # ==============================================================================
 
