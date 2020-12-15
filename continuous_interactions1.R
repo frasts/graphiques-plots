@@ -1,23 +1,16 @@
 # ==============================================================================
-# Graphiques d'une interaction entre deux variables continues
-# Plots showcasing an interaction between two continuous variables
+# Graphique 3D d'une interaction entre deux variables continues
+# 3D plot showcasing an interaction between two continuous variables
 # ==============================================================================
 
-# Graphique #1 - Plot #1 :
+
 # Le premier type de graphique que nous allons créer est une surface 3D 
 # que nous ferons à l'aide de la librarie plotly. C'est l'une des façons 
 # de représenter l'interaction entre deux variables continues.
-
-# Graphique #2 - Plot #2 :
-# Le second graphique que nous allons créer sera en deux dimensions
-# et présentera l'interaction en montrant les courbes prédites
-# par l'équation du modèle pour le 1er et le 3e quartile de la 
-# covariable x2. Nous utiliserons la librarie ggplot2.
 # ------------------------------------------------------------------------------
 
 
 
-                      # Graphique #1 - Plot #1 :
 
 # 1. Importer le jeu de données et charger les libraries
 #    Import the dataset and load libraries
