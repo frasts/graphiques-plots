@@ -66,11 +66,11 @@ mm <- model.matrix(~ x1 + x2 + x1:x2, newdat)
 
 # Calculer les valeurs prédites à partir des coefficients du modèle
 # Calculate predicted values from the model coefficients
-y <- mm%*%fixef(model)[c(1, 2, 3)]
+y <- mm%*%fixef(model)[c(1:4)]
 
 # Intervalle de confiance et de prédiction
 # Confidence and prediction intervals
-x1_p <- diag(mm %*% tcrossprod(vcov(model)[c(1, 2, 3), c(1, 2, 3)], mm))
+x1_p <- diag(mm %*% tcrossprod(vcov(model)[c(1:4), c(1:4)], mm))
 x1_t <- x1_p + 
         VarCorr(model)$id[1] + # variance de id - id variance
         attr(VarCorr(model), "sc") # variance résiduelle - residual variance
