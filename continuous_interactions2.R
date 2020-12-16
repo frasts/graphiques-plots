@@ -23,12 +23,8 @@ source("https://raw.githubusercontent.com/GRECA-UQAM/LMM-GLMM/main/simulate_data
 
 # Télécharger les librairies nécessaires pour produire le graphique
 # Load the libraries needed to produce the plot
-packages <- c("lme4", "plotly", "htmlwidgets")
+packages <- c("lme4", "viridis")
 lapply(packages, require, character.only = TRUE)
-
-# Transformer la variable "environment" en facteur
-# Transform the "environment" variable as a factor
-data$environnement <- as.factor(data$environnement)
 
 # ==============================================================================
 
@@ -39,7 +35,7 @@ data$environnement <- as.factor(data$environnement)
 #    Produce a simple mixed model
 # ==============================================================================
 
-model <- lmer(y ~ x1 + x2 + x1:x2 + environnement + (1|id), data = data)
+model <- lmer(y ~ x1 + x2 + x1:x2 + (1|id), data = data)
 
 # ==============================================================================
 
@@ -74,7 +70,7 @@ y <- mm%*%fixef(model)[c(1, 2, 3, 7)]
 
 # Intervalle de confiance et de prédiction
 # Confidence and prediction intervals
-x1_p <- diag(mm %*% tcrossprod(vcov(model)[c(1, 2, 3, 7), c(1, 2, 3, 7)], mm))
+x1_p <- diag(mm %*% tcrossprod(vcov(model)[c(1, 2, 3), c(1, 2, 3)], mm))
 x1_t <- x1_p + 
         VarCorr(model)$id[1] + # variance de id - id variance
         attr(VarCorr(model), "sc") # variance résiduelle - residual variance
