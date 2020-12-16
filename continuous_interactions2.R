@@ -121,12 +121,17 @@ plot <- ggplot(data = newdat,
                    inherit.aes = FALSE) + # or point shape 20 
         geom_line(size = 1.5) +
       # geom_ribbon(aes(ymin = plo, ymax = phi), alpha = 0.3, colour = NA) +
+      # Nous utilisons des lignes noires pointillées pour montrer l'intervalle de confiance,
+      # mais ça pourrait être aussi une bande colorée
+      # We use dashed black lines to plot confidence intervals, but you could use a ribbon
         geom_line(data = newdat,
                   aes(x = x1, y = plo),
                   linetype = "dashed", size = 1, colour = "black") +
         geom_line(data = newdat,
                   aes(x = x1, y = phi),
                   linetype = "dashed", size = 1, colour = "black") +
+       # Si vous voulez modifier les paramètres des axes y et x
+       # If you want to modify the x and y axis parameters
        #scale_y_continuous(breaks = seq(), 
        #                   expand = c(0, 0),
        #                   limits = c()) +
@@ -136,6 +141,8 @@ plot <- ggplot(data = newdat,
         ylab("y\n") +
         labs(color = "x2 quantiles") +
         xlab("\nx1") +
+       # Paramètres du graphique ajustables à votre guise
+       # Plot parameters that you can adjust as you like
         theme(axis.text.x = element_text(face = "plain", size = 14,
                                    color = "black"), # axis tick numbers size
               axis.text.y = element_text(face = "plain", size = 14,
