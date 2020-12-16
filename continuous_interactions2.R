@@ -5,10 +5,15 @@
 
 
 
-# Le second graphique que nous allons créer sera en deux dimensions
-# et présentera l'interaction en montrant les courbes prédites
+# Le second graphique que nous allons créer 
+# présentera l'interaction en montrant les courbes prédites
 # par l'équation du modèle pour le 1er et le 3e quartile de la 
 # covariable x2. Nous utiliserons la librarie ggplot2.
+
+# The second graph we are going to create will display 
+# a continuous interaction from the predicted
+# values of the model equation for the 1st and 3rd quantile
+# of the x2 covariate. We will use ggplot2.
 
 
 
@@ -53,9 +58,9 @@ x2_quantiles <- quantile(data$x2)
 
 # Créer un nouveau jeu de données
 # Create a new dataset
-newdat <- expand.grid(x1 = seq(min(data$x1), max(data$x1), length = 100),
-                      x2 = c(as.numeric(x2_quantiles[2]), 
-                             as.numeric(x2_quantiles[3]), 
+newdat <- expand.grid(x1 = seq(min(data$x1), max(data$x1), 
+                               length = 100),
+                      x2 = c(as.numeric(x2_quantiles[2]),
                              as.numeric(x2_quantiles[4])
                              )
                      )
@@ -86,7 +91,7 @@ newdat <- data.frame(
                      thi = y + 1.96 * sqrt(x1_t)
                     )
 
-newdat$quantile <- rep(c("25% quantile", "50% quantile", "75% quantile"), each = 100)
+newdat$quantile <- rep(c("25% quantile", "75% quantile"), each = 100)
 
 # ==============================================================================
 
