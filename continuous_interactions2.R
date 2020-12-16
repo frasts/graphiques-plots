@@ -66,7 +66,7 @@ mm <- model.matrix(~ x1 + x2 + x1:x2, newdat)
 
 # Calculer les valeurs prédites à partir des coefficients du modèle
 # Calculate predicted values from the model coefficients
-y <- mm%*%fixef(model)[c(1, 2, 3, 7)]
+y <- mm%*%fixef(model)[c(1, 2, 3)]
 
 # Intervalle de confiance et de prédiction
 # Confidence and prediction intervals
